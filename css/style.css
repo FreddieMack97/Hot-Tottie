@@ -838,17 +838,26 @@ section.content + section.content {
   JavaScript adds/removes the .zoomed class.
 */
 
-.image-lightbox.zoomed img {
-  max-width: none;
-
-  max-height: none;
-
+.image-lightbox img {
+  max-width: 95vw;
+  max-height: 92vh;
   width: auto;
   height: auto;
+  object-fit: contain;
 
-  transform: scale(2);
+  cursor: zoom-in;
 
-  cursor: zoom-out;
+  user-select: none;
+  -webkit-user-select: none;
+
+  transition: transform 0.2s ease;
+
+  touch-action: none;
+  will-change: transform;
+}
+
+.image-lightbox.active img {
+  cursor: zoom-in;
 }
 
 
