@@ -266,8 +266,14 @@ section.content + section.content { border-top: 1px solid var(--border); }
 .section-head .eyebrow { display: block; margin-bottom: 14px; }
 .section-head p { margin-top: 14px; font-size: 16px; }
 
+#inside .section-head h2 {
+  font-size: clamp(1.3rem, 2.3vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
 /* ===========================================================
-   Photo grid (community carousel / perk images)
+   Photo grid (perk images that still use the static grid)
    =========================================================== */
 .photo-grid {
   display: grid;
@@ -281,6 +287,28 @@ section.content + section.content { border-top: 1px solid var(--border); }
   .photo-grid.cols-3 { grid-template-columns: 1fr; }
 }
 
+/* ===========================================================
+   Swipeable carousel — one card at a time, next card peeking
+   =========================================================== */
+.carousel-wrap { margin: 0 -24px; padding: 0 24px; }
+
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar { display: none; }
+
+.carousel .photo-card {
+  flex: 0 0 min(84%, 560px);
+  scroll-snap-align: center;
+}
+
 .photo-card {
   position: relative;
   border-radius: 18px;
@@ -289,6 +317,13 @@ section.content + section.content { border-top: 1px solid var(--border); }
   background: var(--surface-raised);
   border: 1px solid var(--border);
 }
+
+/* Screenshot cards: show the full image, letterboxed, instead of cropping */
+.photo-card.screen {
+  aspect-ratio: 16 / 10;
+  background: #050505;
+}
+.photo-card.screen img { object-fit: contain; }
 
 .photo-card img {
   width: 100%;
