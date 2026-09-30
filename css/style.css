@@ -1127,3 +1127,275 @@ footer nav a:hover {
   height: auto;
   filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.45));
 }
+
+/* ===========================================================
+   HOT TOTTIE — WARM COMMUNITY SECTIONS
+   Inspired by the Hot Tottie brush-logo energy
+   =========================================================== */
+
+/* Warm accent palette */
+:root {
+  --ht-accent: #ff4f8b;
+  --ht-accent-bright: #ff6fa3;
+  --ht-accent-soft: rgba(255, 79, 139, 0.12);
+  --ht-accent-faint: rgba(255, 79, 139, 0.055);
+  --ht-warm-white: #fff7f4;
+}
+
+
+/* -----------------------------------------------------------
+   The three middle sections
+   ----------------------------------------------------------- */
+
+#benefits,
+#community,
+#terminal {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Very subtle atmospheric glow behind each section */
+#benefits::before,
+#community::before,
+#terminal::before {
+  content: "";
+  position: absolute;
+  width: 620px;
+  height: 420px;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255, 79, 139, 0.075) 0%,
+      rgba(255, 79, 139, 0.035) 32%,
+      rgba(255, 79, 139, 0) 72%
+    );
+
+  filter: blur(20px);
+}
+
+
+/* Keep all actual content above the glow */
+#benefits > .wrap,
+#community > .wrap,
+#terminal > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* -----------------------------------------------------------
+   Section headings
+   ----------------------------------------------------------- */
+
+#benefits .section-head .eyebrow,
+#community .section-head .eyebrow,
+#terminal .perk-copy .eyebrow {
+  color: var(--ht-accent-bright);
+}
+
+
+#benefits .section-head h2,
+#community .section-head h2,
+#terminal .perk-copy h2 {
+  color: var(--ht-warm-white);
+}
+
+
+/* -----------------------------------------------------------
+   Feature cards
+   ----------------------------------------------------------- */
+
+#benefits .feature,
+#community .feature {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.018) 55%,
+      rgba(255, 79, 139, 0.025)
+    );
+
+  border-color: rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 14px 40px rgba(0, 0, 0, 0.18);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* Small colored accent at the top of each card */
+#benefits .feature::before,
+#community .feature::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 26px;
+
+  width: 34px;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--ht-accent),
+      rgba(255, 111, 163, 0)
+    );
+
+  opacity: 0.9;
+}
+
+
+/* Slight lift on hover */
+#benefits .feature:hover,
+#community .feature:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(255, 79, 139, 0.28);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 79, 139, 0.045)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 18px 48px rgba(0, 0, 0, 0.25),
+    0 0 34px rgba(255, 79, 139, 0.055);
+}
+
+
+/* -----------------------------------------------------------
+   Card markers
+   ----------------------------------------------------------- */
+
+#benefits .feature .mark,
+#community .feature .mark {
+  color: var(--ht-accent-bright);
+}
+
+
+/* Make the main card titles warmer/cleaner */
+#benefits .feature h3,
+#community .feature h3 {
+  color: var(--ht-warm-white);
+}
+
+
+/* Slightly brighter body copy */
+#benefits .feature p,
+#community .feature p {
+  color: rgba(245, 243, 238, 0.74);
+}
+
+
+/* -----------------------------------------------------------
+   Real Interactions — make it feel more human
+   ----------------------------------------------------------- */
+
+#community {
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(255, 79, 139, 0.035),
+      transparent 58%
+    );
+}
+
+
+/* -----------------------------------------------------------
+   Member Perk / Terminal
+   ----------------------------------------------------------- */
+
+#terminal {
+  background:
+    radial-gradient(
+      ellipse at 50% 30%,
+      rgba(255, 79, 139, 0.055),
+      transparent 62%
+    );
+}
+
+
+/* Give the Terminal heading a subtle glow */
+#terminal .perk-copy h2 {
+  text-shadow:
+    0 0 30px rgba(255, 79, 139, 0.12);
+}
+
+
+/* Slightly warmer Terminal screenshots container */
+#terminal .photo-card {
+  border-color: rgba(255, 79, 139, 0.14);
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.28),
+    0 0 45px rgba(255, 79, 139, 0.035);
+}
+
+
+/* -----------------------------------------------------------
+   Section separators
+   ----------------------------------------------------------- */
+
+#inside + #benefits,
+#benefits + #community,
+#community + #terminal {
+  border-top-color: rgba(255, 79, 139, 0.11);
+}
+
+
+/* -----------------------------------------------------------
+   Slightly warmer carousel arrows in these sections
+   ----------------------------------------------------------- */
+
+#inside .carousel-arrow,
+#terminal .carousel-arrow {
+  border-color: rgba(255, 79, 139, 0.25);
+}
+
+
+#inside .carousel-arrow:hover,
+#terminal .carousel-arrow:hover {
+  background: rgba(255, 79, 139, 0.12);
+  border-color: rgba(255, 111, 163, 0.65);
+}
+
+
+/* -----------------------------------------------------------
+   Mobile — keep the effect subtle
+   ----------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+  #benefits::before,
+  #community::before,
+  #terminal::before {
+    width: 420px;
+    height: 340px;
+  }
+
+  #benefits .feature:hover,
+  #community .feature:hover {
+    transform: none;
+  }
+
+}
