@@ -1375,3 +1375,44 @@ footer {
     transform: none;
   }
 }
+
+/* ===========================================================
+   CAROUSELS — screenshots only (no card / box)
+   Add at the very end of style.css
+   =========================================================== */
+
+#inside .carousel .photo-card.screen,
+#terminal .carousel .photo-card.screen {
+  aspect-ratio: auto;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Let the screenshot define its own size */
+#inside .carousel .photo-card.screen img,
+#terminal .carousel .photo-card.screen img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 10px;   /* set to 0 for sharp corners */
+}
+
+/* No gradient or caption layer on screenshots */
+.photo-card.screen .scrim,
+.photo-card.screen .caption {
+  display: none;
+}
+
+/* Center slides of different heights */
+.carousel {
+  align-items: center;
+}
