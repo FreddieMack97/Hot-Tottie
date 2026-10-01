@@ -1129,17 +1129,23 @@ footer nav a:hover {
 }
 
 /* ===========================================================
-   HOT TOTTIE — WARM COMMUNITY SECTIONS
-   Applies the Hot Tottie logo-inspired accent to the four
-   community sections without changing the overall dark theme.
+   HOT TOTTIE — SEA-BLUE COMMUNITY SECTIONS
+   Blue "sea" background (like the hero video) with pink text
+   and accents, in the four middle sections.
    =========================================================== */
 
 :root {
+  /* Pink accents (text, marks, lines) */
   --ht-accent: #ff4f8b;
   --ht-accent-bright: #ff6fa3;
-  --ht-accent-soft: rgba(255, 79, 139, 0.12);
-  --ht-accent-faint: rgba(255, 79, 139, 0.055);
   --ht-warm-white: #fff7f4;
+
+  /* Sea blue (backgrounds, glows, borders) — tweak these to match the video */
+  --ht-sea: #1f7bd8;          /* main glow / highlight blue */
+  --ht-sea-bright: #4aa3ff;   /* hover borders */
+  --ht-sea-deep: #05203f;     /* section background (mid) */
+  --ht-sea-darkest: #031226;  /* section background (edges) */
+  --ht-sea-card: #07294f;     /* card base */
 }
 
 /* Keep the effect contained to the four middle sections */
@@ -1149,17 +1155,25 @@ footer nav a:hover {
 #terminal {
   position: relative;
   overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--ht-sea-darkest) 0%,
+      var(--ht-sea-deep) 50%,
+      var(--ht-sea-darkest) 100%
+    );
 }
 
-/* Soft logo-inspired glow behind each section */
+/* Soft sea-colored light at the top of each section */
 #inside::before,
 #benefits::before,
 #community::before,
 #terminal::before {
   content: "";
   position: absolute;
-  width: min(900px, 100vw);
-  height: 520px;
+  width: min(1000px, 100vw);
+  height: 560px;
   left: 50%;
   top: 0;
   transform: translateX(-50%);
@@ -1167,9 +1181,9 @@ footer nav a:hover {
   background:
     radial-gradient(
       ellipse at center top,
-      rgba(255, 79, 139, 0.075) 0%,
-      rgba(255, 79, 139, 0.035) 34%,
-      transparent 70%
+      rgba(31, 123, 216, 0.30) 0%,
+      rgba(31, 123, 216, 0.12) 38%,
+      transparent 72%
     );
 }
 
@@ -1181,7 +1195,7 @@ footer nav a:hover {
   z-index: 1;
 }
 
-/* Slightly warmer section headings */
+/* Pink eyebrows, warm-white headings */
 #inside .section-head .eyebrow,
 #benefits .section-head .eyebrow,
 #community .section-head .eyebrow,
@@ -1196,11 +1210,18 @@ footer nav a:hover {
   color: var(--ht-warm-white);
 }
 
-/* Warm, slightly brighter separators */
+/* Paragraphs a bit brighter for readability on blue */
+#benefits .section-head p,
+#community .section-head p,
+#terminal .perk-copy p {
+  color: rgba(235, 244, 255, 0.78);
+}
+
+/* Blue separators between sections */
 #inside + #benefits,
 #benefits + #community,
 #community + #terminal {
-  border-top-color: rgba(255, 79, 139, 0.18);
+  border-top-color: rgba(74, 163, 255, 0.25);
 }
 
 /* -----------------------------------------------------------
@@ -1215,17 +1236,17 @@ footer nav a:hover {
   background:
     linear-gradient(
       145deg,
-      rgba(255, 247, 244, 0.045),
-      rgba(255, 79, 139, 0.035) 55%,
-      rgba(255, 255, 255, 0.018)
+      rgba(74, 163, 255, 0.10),
+      rgba(31, 123, 216, 0.06) 55%,
+      rgba(255, 255, 255, 0.02)
     ),
-    var(--surface);
+    var(--ht-sea-card);
 
-  border-color: rgba(255, 247, 244, 0.14);
+  border-color: rgba(120, 190, 255, 0.20);
 
   box-shadow:
-    0 14px 40px rgba(0, 0, 0, 0.20),
-    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+    0 14px 40px rgba(0, 0, 10, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
   transition:
     transform 0.25s ease,
@@ -1233,7 +1254,12 @@ footer nav a:hover {
     box-shadow 0.25s ease;
 }
 
-/* Small neon accent line across the top of each card */
+#benefits .feature p,
+#community .feature p {
+  color: rgba(235, 244, 255, 0.75);
+}
+
+/* Pink accent line across the top of each card */
 #benefits .feature::before,
 #community .feature::before {
   content: "";
@@ -1250,19 +1276,19 @@ footer nav a:hover {
     transparent
   );
 
-  opacity: 0.72;
+  opacity: 0.8;
 }
 
 #benefits .feature:hover,
 #community .feature:hover {
   transform: translateY(-3px);
 
-  border-color: rgba(255, 111, 163, 0.32);
+  border-color: rgba(74, 163, 255, 0.50);
 
   box-shadow:
-    0 18px 48px rgba(0, 0, 0, 0.28),
-    0 0 28px rgba(255, 79, 139, 0.07),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 18px 48px rgba(0, 0, 10, 0.40),
+    0 0 30px rgba(31, 123, 216, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 #benefits .feature .mark,
@@ -1275,15 +1301,15 @@ footer nav a:hover {
    ----------------------------------------------------------- */
 
 #inside .photo-card.screen {
-  border-color: rgba(255, 247, 244, 0.14);
+  border-color: rgba(120, 190, 255, 0.22);
 
   box-shadow:
-    0 16px 44px rgba(0, 0, 0, 0.28),
-    0 0 32px rgba(255, 79, 139, 0.045);
+    0 16px 44px rgba(0, 0, 10, 0.40),
+    0 0 36px rgba(31, 123, 216, 0.18);
 }
 
 #inside .photo-card.screen:hover {
-  border-color: rgba(255, 111, 163, 0.30);
+  border-color: rgba(74, 163, 255, 0.50);
 }
 
 /* -----------------------------------------------------------
@@ -1291,27 +1317,30 @@ footer nav a:hover {
    ----------------------------------------------------------- */
 
 #terminal .perk-copy h2 {
-  text-shadow: 0 0 28px rgba(255, 79, 139, 0.12);
+  text-shadow: 0 0 28px rgba(31, 123, 216, 0.35);
 }
 
 #terminal .photo-card.screen {
-  border-color: rgba(255, 247, 244, 0.14);
+  border-color: rgba(120, 190, 255, 0.22);
 
   box-shadow:
-    0 18px 48px rgba(0, 0, 0, 0.30),
-    0 0 36px rgba(255, 79, 139, 0.055);
+    0 18px 48px rgba(0, 0, 10, 0.45),
+    0 0 40px rgba(31, 123, 216, 0.20);
 }
 
+/* Carousel arrows (all four sections): blue ring, pink arrow */
+#inside .carousel-arrow,
 #terminal .carousel-arrow {
-  border-color: rgba(255, 111, 163, 0.30);
+  border-color: rgba(74, 163, 255, 0.40);
   color: var(--ht-accent-bright);
-  background: rgba(15, 8, 11, 0.82);
+  background: rgba(3, 18, 38, 0.82);
 }
 
+#inside .carousel-arrow:hover,
 #terminal .carousel-arrow:hover {
-  border-color: var(--ht-accent);
-  background: rgba(255, 79, 139, 0.10);
-  box-shadow: 0 0 22px rgba(255, 79, 139, 0.12);
+  border-color: var(--ht-sea-bright);
+  background: rgba(31, 123, 216, 0.20);
+  box-shadow: 0 0 22px rgba(31, 123, 216, 0.30);
 }
 
 /* -----------------------------------------------------------
@@ -1324,11 +1353,11 @@ footer nav a:hover {
   #community::before,
   #terminal::before {
     width: 130vw;
-    height: 420px;
+    height: 440px;
     background:
       radial-gradient(
         ellipse at center top,
-        rgba(255, 79, 139, 0.055) 0%,
+        rgba(31, 123, 216, 0.24) 0%,
         transparent 68%
       );
   }
