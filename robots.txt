@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hot-tottie.pages.dev/sitemap.xml
+Sitemap: https://hot-tottie.org/sitemap.xml
